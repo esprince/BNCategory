@@ -95,25 +95,25 @@ NSLog(@"%@",[NSArray turn:matrix]);
 	NSLog(@"%ld ",i);
 }];
 
-//output @12
+//字符串转NSNumber output -- @12
 NSLog(@"%@",[NSNumber numberByString:@"12"]);
 
-//output -- @32
+//NSNumber整数相加 output -- @32
 NSLog(@"%@",[@12 OperaInt:@20 type:BNAdd]);
 
-//output -- @32.1
+//NSNumber浮点数相加 output -- @32.1
 NSLog(@"%@",[@12 OperaFloat:@20.1 type:BNAdd]);
 ```
 
 ##NSString
 ```objc
-//output -- 123
+//去掉两端空格 output -- 123
 NSLog(@"%@",[@" 123 " stringByTrim]);
 
-//output -- [1,2,3]
+//以某个字符拆分字符串 output -- [1,2,3]
 NSLog(@"%@",[@"1,2,3" explode:@","]);
 
-//output -- 1=2=3
+//将字符串中的某个字符替换 output -- 1=2=3
 NSLog(@"%@",[@"1,2,3" replace:@"," to:@"="]);
 ```
 
