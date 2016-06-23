@@ -13,5 +13,6 @@
 #import "NSNumber+BNAdd.h"
 #import "NSDictionary+BNAdd.h"
 #import "NSString+BNAdd.h"
+#import "NSTimer+BNAdd.h"
 
 #endif /* BNCategory_h */

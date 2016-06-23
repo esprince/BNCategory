@@ -9,7 +9,11 @@
 #import "NSString+BNAdd.h"
 #import "NSArray+BNAdd.h"
 
+
 @implementation NSString (BNAdd)
+- (NSString *)append:(NSString *)str {
+    return [self stringByAppendingString:str];
+}
 
 - (NSString *)stringByTrim {
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
