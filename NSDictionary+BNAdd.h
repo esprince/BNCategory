@@ -16,5 +16,5 @@
 
 - (NSDictionary *)filter:(BOOL (^)(id key, id value))block;
 
-- (NSArray *)orderValuesByKeys:(NSArray *)orderKeys;
+- (NSArray *)orderValuesBy:(NSArray *)orderKeys;
 @end

@@ -23,6 +23,18 @@
     }
 }
 
+- (void)to:(NSInteger)to do:(void (^)(NSInteger i))block {
+    if (self.integerValue > to) {
+        [self downTo:to do:^(NSInteger i) {
+            block(i);
+        }];
+    }else {
+        [self upTo:to do:^(NSInteger i) {
+            block(i);
+        }];
+    }
+}
+
 - (void)upTo:(NSInteger)up do:(void (^)(NSInteger))block {
     if (self.integerValue > up) {
         return;
@@ -85,35 +97,47 @@
     return [formatter numberFromString:string];
 }
 
-- (NSNumber *)OperaFloat:(NSNumber *)num type:(NSString *)type{
+- (NSNumber *)OperaFloat:(NSNumber *)num type:(BNNumberOperationType)type{
     NSNumber *result = nil;
-    if ([type isEqualToString:@"+"]) {
-        result = @(self.floatValue + [num floatValue]);
-    }else if ([type isEqualToString:@"-"]){
-        result = @(self.floatValue - [num floatValue]);
-    }else if ([type isEqualToString:@"*"]){
-        result = @(self.floatValue * [num floatValue]);
-    }else if ([type isEqualToString:@"/"]){
-        result = @(self.floatValue / [num floatValue]);
-    }else {
-        return nil;
+    switch (type) {
+        case BNAdd:
+            result = @(self.floatValue + [num floatValue]);
+            break;
+        case BNSub:
+            result = @(self.floatValue - [num floatValue]);
+            break;
+        case BNMul:
+            result = @(self.floatValue * [num floatValue]);
+            break;
+        case BNDiv:
+            result = @(self.floatValue / [num floatValue]);
+            break;
+        default:
+            break;
     }
+    
     return result;
 }
 
-- (NSNumber *)OperaInt:(NSNumber *)num type:(NSString *)type{
+- (NSNumber *)OperaInt:(NSNumber *)num type:(BNNumberOperationType)type{
     NSNumber *result = nil;
-    if ([type isEqualToString:@"+"]) {
-        result = @(self.integerValue + [num integerValue]);
-    }else if ([type isEqualToString:@"-"]){
-        result = @(self.integerValue - [num integerValue]);
-    }else if ([type isEqualToString:@"*"]){
-        result = @(self.integerValue * [num integerValue]);
-    }else if ([type isEqualToString:@"/"]){
-        result = @(self.integerValue / [num integerValue]);
-    }else {
-        return nil;
+    switch (type) {
+        case BNAdd:
+            result = @(self.integerValue + [num integerValue]);
+            break;
+        case BNSub:
+            result = @(self.integerValue - [num integerValue]);
+            break;
+        case BNMul:
+            result = @(self.integerValue * [num integerValue]);
+            break;
+        case BNDiv:
+            result = @(self.integerValue / [num integerValue]);
+            break;
+        default:
+            break;
     }
+    
     return result;
 }
 @end

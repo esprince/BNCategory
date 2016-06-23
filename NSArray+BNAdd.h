@@ -20,7 +20,12 @@
 
 //遍历操作
 - (void)each:(void (^)(id obj))block;
+
+- (void)reverseEach:(void (^)(id))block;
+
 - (void)eachTimes:(void (^)(id obj, NSUInteger index))block;
+
+- (void)reverseEachTimes:(void (^)(id obj, NSUInteger index))block;
 
 //异步遍历操作
 - (void)apply:(void (^)(id obj))blcok;

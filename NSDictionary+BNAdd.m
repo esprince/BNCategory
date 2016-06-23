@@ -36,10 +36,10 @@
     return dict;
 }
 
-- (NSArray *)orderValuesByKeys:(NSArray *)orderKeys {
+- (NSArray *)orderValuesBy:(NSArray *)orderKeys {
     
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:orderKeys.count];
-    for (NSInteger i = 0; i<orderKeys.count ; i++) {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:3];
+    for (NSInteger i = 0; i<3 ; i++) {
         [result addObject:self[orderKeys[i]]];
     }
     return (NSArray *)result;

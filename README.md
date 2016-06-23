@@ -10,9 +10,19 @@ NSArray *data = @[@"1",@"2",@"3",@"4"];
 	NSLog(@"%@",obj);
 }];
 
-//eachTimes遍历 -- output 1--0 2--1 3--2 4--3
+//reverseEach 反序遍历 -- output 4 3 2 1
+[datas reverseEach:^(id obj) {
+	NSLog(@"%@",obj);
+}];
+
+//eachTimes遍历 -- output 1:0 2:1 3:2 4:3
 [datas eachTimes:^(id obj, NSUInteger index) {
- 	NSLog(@"%@--%ld",obj, index);
+ 	NSLog(@"%@:%ld",obj, index);
+}];
+
+//reverseEachTimes 反序遍历 -- output 4:3 3:2 2:1 1:0
+[datas reverseEachTimes:^(id obj, NSUInteger index) {
+ 	NSLog(@"%@:%ld",obj, index);
 }];
 
 //apply异步遍历 用于处理大量数据 无法保证顺序
@@ -55,7 +65,10 @@ NSArray *matrix =
 @[@"9",@"10",@"11",@"12"]];
 
 NSLog(@"%@",[NSArray turn:matrix]);
+```
 
+##NSMutableArry
+```objc
 //pop push	模拟栈
 //shift unshift 模拟队列
 ```
@@ -73,12 +86,12 @@ NSLog(@"%@",[NSArray turn:matrix]);
 }];
 
 //output 10 11 12 13 14 15
-[@10 upTo:15 do:^(NSInteger i) {
+[@10 to:15 do:^(NSInteger i) {
   NSLog(@"%ld ",i);
 }];
 
 //output 20 19 18 17 16 15
-[@20 downTo:15 do:^(NSInteger i) {
+[@20 to:15 do:^(NSInteger i) {
 	NSLog(@"%ld ",i);
 }];
 

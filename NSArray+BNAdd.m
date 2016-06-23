@@ -16,8 +16,20 @@
     }];
 }
 
+- (void)reverseEach:(void (^)(id))block {
+    [self enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        block(obj);
+    }];
+}
+
 - (void)eachTimes:(void (^)(id obj, NSUInteger index))block {
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        block(obj,idx);
+    }];
+}
+
+- (void)reverseEachTimes:(void (^)(id obj, NSUInteger index))block {
+    [self enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         block(obj,idx);
     }];
 }
