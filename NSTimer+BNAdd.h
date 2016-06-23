@@ -21,4 +21,9 @@
            repeats:(BOOL)yesOrNo
              block:(void(^)(NSTimer *timer))block;
 
+
+- (void)start;
+
+- (void)stop;
+
 @end

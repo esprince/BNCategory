@@ -29,4 +29,12 @@
     }
 }
 
+- (void)start {
+    [self setFireDate:[NSDate distantPast]];
+}
+
+- (void)stop {
+    [self setFireDate:[NSDate distantFuture]];
+}
+
 @end
