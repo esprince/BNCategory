@@ -22,10 +22,10 @@
     return [NSTimer timerWithTimeInterval:ti target:self selector:@selector(bonc_timer_event:) userInfo:[block copy] repeats:yesOrNo];
 }
 
-+ (void)bonc_timer_event:(NSTimer *)timer {
-    if (timer.userInfo) {
-        void(^block)(NSTimer *timer) = (void(^)(NSTimer *timer))timer.userInfo;
-        block(timer);
++ (void)bonc_timer_event:(NSTimer *)timer1 {
+    if (timer1.userInfo) {
+        void(^block)(NSTimer *timer) = (void(^)(NSTimer *timer))timer1.userInfo;
+        block(timer1);
     }
 }
 

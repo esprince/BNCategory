@@ -116,19 +116,4 @@ NSLog(@"%@",[@"1,2,3" explode:@","]);
 //将字符串中的某个字符替换 output -- 1=2=3
 NSLog(@"%@",[@"1,2,3" replace:@"," to:@"="]);
 ```
-##NSTimer
-```objc
-//创建一个自动运行的定时器
-self.timer =
-[NSTimer scheduledTimer:2 repeats:YES block:^(NSTimer *timer) {
-	NSLog(@"hello");
-}];
-//开始运行
-[self.timer start];
-//暂停运行
-[self.timer stop];
-//结束运行
-[self.timer invalidate];
-```
-
 
