@@ -116,4 +116,41 @@ NSLog(@"%@",[@"1,2,3" explode:@","]);
 //将字符串中的某个字符替换 output -- 1=2=3
 NSLog(@"%@",[@"1,2,3" replace:@"," to:@"="]);
 ```
+##NSTimer
+```objc
+//创建一个自动运行的定时器
+NSTimer *timer =
+[NSTimer scheduledTimer:2 repeats:YES block:^(NSTimer *timer) {
+    NSLog(@"hello");
+}];
+//开始运行
+[timer start];
+//暂停运行
+[timer stop];
+//结束运行
+[timer invalidate];
+```
+##UIButton
+```objc
+//为按钮添加点击事件 默认onClick是touchUpInside
+UIButton *btn = [[UIButton alloc]init];
+[btn onClick:(^id sender){
+	NSLog(@"hello");
+}];
+//添加其他事件 UIControlEventTouchDown
+[btn tapped:UIControlEventTouchDown do:(^id sender:{
+	NSLog(@"hello");
+}];
+```
+##NSObject
+```objc
+//用运行时为Object绑定了一个字典属性，用于在一些场景下的多参数传值。例如：
+UIButton *btn = [[UIButton alloc] init];
+[btn setExtraInfo:@{@"name":@"xiaos"}];
+[bnt onClick:(^id sender){
+	NSLog(@"%@",[sender extraInfo][@"name"]);
+}];
+//output @"xiaos"
+```
+
 
