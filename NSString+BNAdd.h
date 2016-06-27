@@ -16,6 +16,6 @@
 
 - (NSString *)replace:(NSString *)str to:(NSString *)toStr;
 
-- (NSString *)append:(NSString *)str;
+- (NSString *(^)(NSString *))append;
 
 @end

@@ -11,8 +11,10 @@
 
 
 @implementation NSString (BNAdd)
-- (NSString *)append:(NSString *)str {
-    return [self stringByAppendingString:str];
+- (NSString *(^)(NSString *))append {
+    return ^NSString *(NSString *str) {
+        return [self stringByAppendingString:str];
+    };
 }
 
 - (NSString *)stringByTrim {
