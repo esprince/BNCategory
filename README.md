@@ -115,6 +115,9 @@ NSLog(@"%@",[@"1,2,3" explode:@","]);
 
 //将字符串中的某个字符替换 output -- 1=2=3
 NSLog(@"%@",[@"1,2,3" replace:@"," to:@"="]);
+
+//拼接字符串 output -- xiaos.hello
+NSLog(@"%@",@"xiaos".append(@",").append(@"xiaos"));
 ```
 ##NSTimer
 ```objc
