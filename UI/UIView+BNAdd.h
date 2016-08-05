@@ -1,9 +1,6 @@
 //
-//  UIView+BNAdd.h
-//  pop
-//
-//  Created by xiaos on 16/7/4.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -39,5 +36,18 @@
 
 - (CGSize)size;
 - (void)setSize:(CGSize)size;
+
+- (void)onCilck:(void(^)(UIGestureRecognizer *g))block;
+
++ (UIColor *)matchColor:(id)obj defalut:(UIColor *)defalut;
++ (NSUInteger)matchAlign:(id)align;
++ (UIFont *)matchFontSize:(id)fontSzie;
++ (NSString *)matchText:(id)text;
++ (CGFloat)matchFloatValue:(id)num;
+
+#pragma mark - border
++ (CGFloat)matchBorderWidth:(id)obj;
++ (CGColorRef)matchBorderColor:(id)obj;
++ (CGFloat)matchBorderRadius:(id)obj;
 
 @end

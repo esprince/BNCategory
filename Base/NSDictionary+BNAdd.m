@@ -1,9 +1,6 @@
 //
-//  NSDictionary+BNAdd.m
-//  Fundation
-//
-//  Created by xiaos on 16/6/21.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import "NSDictionary+BNAdd.h"

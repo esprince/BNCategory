@@ -1,14 +1,21 @@
 //
-//  NSArray+BNAdd.m
-//  Promise
-//
-//  Created by xiaos on 16/6/20.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import "NSArray+BNAdd.h"
 
 @implementation NSArray (BNAdd)
+
++ (NSArray<NSNumber *> *(^)(NSInteger start,NSInteger end))range {
+    return ^NSArray<NSNumber *> *(NSInteger start,NSInteger end){
+        NSMutableArray<NSNumber *> *result = [NSMutableArray arrayWithCapacity:end-start+1];
+        for (NSInteger i = start; i <= end; i++) {
+            [result addObject:@(i)];
+        }
+        return [result copy];
+    };
+}
 
 - (void)each:(void (^)(id))block {
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -50,13 +57,8 @@
         }];
         return arr;
     };
-//    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:self.count];
-//    [self each:^(id obj) {
-//        id result = block(obj)?:[NSNull null];
-//        [arr addObject:result];
-//    }];
-//    return arr;
 }
+
 - (NSArray *(^)(BOOL (^)(id obj)))filter {
     return ^NSArray *(BOOL (^block)(id obj)){
         NSMutableArray *arr = [NSMutableArray arrayWithCapacity:self.count];
@@ -69,16 +71,6 @@
     };
 }
 
-//- (NSArray *)filter:(BOOL (^)(id))block {
-//    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:self.count];
-//    [self each:^(id obj) {
-//        if (block(obj)) {
-//            [arr addObject:obj];
-//        }
-//    }];
-//    return arr;
-//}
-
 - (id)reduce:(id)init with:(id (^)(id, id))blcok {
     __block id result = init;
     [self each:^(id obj) {
@@ -88,14 +80,11 @@
 }
 
 
-- (NSString *)implode:(NSString *)str {
-    NSString *allStr = [self reduce:@"" with:^NSString *(NSString *a, NSString *b) {
-        return [a stringByAppendingFormat:@"%@%@",str,b];
-    }];
-    
-    return [allStr substringFromIndex:str.length];
+- (NSString *(^)(NSString *))join {
+    return ^(NSString *str){
+        return [self componentsJoinedByString:str];
+    };
 }
-
 
 - (id)randomItem {
     if (self.count) {
@@ -109,7 +98,6 @@
     NSInteger col = arr[0].count;
     NSInteger row = arr.count;
     
-    
     NSMutableArray<NSMutableArray *> *tArr = [NSMutableArray arrayWithCapacity:col];
     
     for (NSInteger i = 0; i < col; i++) {
@@ -117,13 +105,11 @@
         [tArr addObject:tArr0];
     }
     
-    
     for (NSInteger i = 0; i < col; i++) {
         for (NSInteger j = 0; j < row; j++) {
             [tArr[i] addObject:arr[j][i]];
         }
     }
-    
     return tArr;
 }
 

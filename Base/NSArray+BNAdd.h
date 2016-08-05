@@ -1,18 +1,16 @@
 //
-//  NSArray+BNAdd.h
-//  Promise
-//
-//  Created by xiaos on 16/6/20.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface NSArray (BNAdd)
 
-//T 转置 多维数组行列互换
+//range数组
++ (NSArray<NSNumber *> *(^)(NSInteger start,NSInteger end))range;
+
+//T 转置 二维数组行列互换
 + (NSMutableArray *)turn:(NSArray<NSArray *> *)arr;
 
 //返回任意对象
@@ -40,7 +38,7 @@
 - (id)reduce:(id)init with:(id (^)(id a, id b))blcok;
 
 //聚合数组中的字符串
-- (NSString *)implode:(NSString *)str;
+- (NSString *(^)(NSString *))join;
 
 
 @end

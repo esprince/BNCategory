@@ -1,9 +1,6 @@
 //
-//  NSTimer+BNAdd.m
-//  Dict2List
-//
-//  Created by xiaos on 16/6/23.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import "NSTimer+BNAdd.h"

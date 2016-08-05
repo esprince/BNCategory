@@ -1,18 +1,20 @@
 //
-//  UIViewController+BNAdd.m
-//  pop
-//
-//  Created by xiaos on 16/7/4.
-//  Copyright © 2016年 com.xsdota. All rights reserved.
+// Created by xiaos on 15/6/24.
+// Copyright (c) 2016 com.xsdota. All rights reserved.
 //
 
 #import "UIViewController+BNAdd.h"
 #import "UIView+BNAdd.h"
+#import "NSString+BNAdd.h"
 
 @implementation UIViewController (BNAdd)
 
+- (void)showMessage:(NSString *)msg delay:(double)d{
+    [self showHUD:msg form:nil delay:d];
+}
+
 //在指定的view上显示
-- (void)showHUD:(NSString *)msg form:(UIView *)fromview {
+- (void)showHUD:(NSString *)msg form:(UIView *)fromview delay:(double)delay{
     if (!msg.length) return;
     UIFont *font = [UIFont systemFontOfSize:17];
     CGSize size = [msg sizeWithFont:font maxSize:CGSizeMake(200, 200)];
@@ -46,7 +48,8 @@
     [UIView animateWithDuration:0.4 animations:^{
         hud.alpha = 1;
     }];
-    double delayInSeconds = 1.1;
+    
+    double delayInSeconds = delay?:1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [UIView animateWithDuration:0.4 animations:^{
@@ -59,27 +62,3 @@
 
 @end
 
-@implementation NSString (Ext)
-
-- (CGSize)sizeWithFont:(UIFont *)font maxWidth:(CGFloat)width
-{
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = font;
-    CGSize maxSize = CGSizeMake(width, MAXFLOAT);
-    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-}
-
-- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize
-{
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = font;
-    //    CGSize maxSize = CGSizeMake(width, MAXFLOAT);
-    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-}
-
-- (CGSize)sizeWithFont:(UIFont *)font
-{
-    return [self sizeWithFont:font maxWidth:MAXFLOAT];
-}
-
-@end
