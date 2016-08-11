@@ -1,6 +1,6 @@
 # BNCategory
 封装了常用的集合类，NSNumber类，NSString类赋予了函数式的高阶函数
-
+##auth xiaos
 ##NSArray
 ```objc
 NSArray *data = @[@"1",@"2",@"3",@"4"];
